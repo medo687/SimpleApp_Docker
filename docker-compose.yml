@@ -1,7 +1,7 @@
 version: '3'
 services:
   node-app:
-    container_name: name
+    container_name: SimpleAppContainer
     ports:
       - "4000:4000"
     env_file:
@@ -10,7 +10,15 @@ services:
       - mongo  
       - redis
       ##- postgres 
-
+    deploy:
+      replicas: 4
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on_failure
+        delay: 5s
+           
   mongo:
     image: mongo
     restart: always
