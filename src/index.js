@@ -46,7 +46,7 @@ redisClient.connect();
 
 app.get("/", (req, res) => {
   redisClient.set("products", "products...");
-  res.send("<h1> Hello world !!!</h1>");
+  res.send("<h1> Hello world :)  !!!</h1>");
 });
 
 app.get("/data", async (req, res) => {
